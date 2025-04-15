@@ -5,12 +5,14 @@ const PORT = process.env.PORT || 3000;
 
 app.get('/', async (req, res) => {
   try {
-    const matchListRes = await fetch("https://mc.nrl.com/v1/matches", {
-      headers: {
-        "User-Agent": "Mozilla/5.0",
-        "Referer": "https://matchcentre.nrl.com/",
-      }
-    });
+ const matchListRes = await fetch("https://mc.nrl.com/v1/matches", {
+  headers: {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+    "Referer": "https://matchcentre.nrl.com/",
+    "Accept": "application/json",
+    "Origin": "https://matchcentre.nrl.com"
+  }
+});
 
     const matches = await matchListRes.json();
 
